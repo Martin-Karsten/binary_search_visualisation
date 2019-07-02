@@ -28,7 +28,7 @@ function App() {
 
   const resetList = () => {
     setData(Array(20).fill().map((e,i)=>i+1))
-    setData(Array(20).fill().map((e,i)=>i+1))
+    setSubData(Array(20).fill().map((e,i)=>i+1))
   }
 
   const binarySearchIt = (arr, x) => e => {
@@ -72,13 +72,14 @@ function App() {
       <h1>Binary search</h1>
       <h2>Time space complexity O(log n)</h2>
       <h3>Best case O(1), if <span className="target-text">target</span> = <span className="mid-text">mid</span></h3>
+      <h3>Array has to be sorted, if not binary search does not work</h3>
       <Flipper flipKey={data.join("")}>
-        <button className="button" onClick={shuffleList}> shuffle</button>
+        <button className="button" onClick={shuffleList}>Shuffle</button>
         <button className="button" onClick={sortList}>Sort</button>
-        <button className="button" onClick={binarySearchIt(data, num)}>Search Iterative</button>
+        <button className="button" onClick={binarySearchIt(data, num)}>Search</button>
         <button className="button" onClick={resetList}>Reset</button>
         <h3>Number to search <input type="text" value={num} onChange={changeNum} /></h3>
-        {/* {res} */}
+        {res}
         <ul className="list">
           {data.map(d => (
             <Flipped key={d} flipId={d}>
